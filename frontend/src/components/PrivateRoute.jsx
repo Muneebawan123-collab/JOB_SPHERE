@@ -4,8 +4,9 @@ import AuthContext from "../context/AuthContext";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
+  const isAuthenticated = user || localStorage.getItem("authToken"); // Check from context and localStorage
 
-  return user ? children : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

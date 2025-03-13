@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-//import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
 import Jobs from "./pages/Jobs";
@@ -34,6 +34,7 @@ function App() {
           <Route path="/chat/:userId" element={<Chat />} />
           <Route path="/analytics" element={<UserAnalytics />} />
           <Route path="/employer-analytics" element={<EmployerAnalytics />} />
+          <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
         </Routes>
       </Router>
     </AuthProvider>
